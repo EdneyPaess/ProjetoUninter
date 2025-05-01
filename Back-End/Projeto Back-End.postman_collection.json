@@ -1,0 +1,1289 @@
+{
+	"info": {
+		"_postman_id": "cbf45979-c205-4af2-9892-648479ccc113",
+		"name": "Projeto Back-End",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "28449209"
+	},
+	"item": [
+		{
+			"name": "Cadastro de Usuário",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"content-type": true
+				}
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nome\": \"Dr. Edney Paes\",\r\n    \"email\": \"edney@email.com\",\r\n    \"senha\": \"senha123\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:5000/cadastro",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"cadastro"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Cadastro de Usuário",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nome\": \"Dr. Edney Paes\",\r\n    \"email\": \"edney@email.com\",\r\n    \"senha\": \"senha123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:5000/cadastro",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"cadastro"
+							]
+						}
+					},
+					"status": "CREATED",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Server",
+							"value": "Werkzeug/3.1.3 Python/3.13.3"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 27 Apr 2025 23:56:57 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "55"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Usuário cadastrado com sucesso\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Login de Usuário",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var jsonData = pm.response.json();",
+							"pm.environment.set('jwt_token', jsonData.access_token);"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"email\": \"edney@email.com\", \"senha\": \"senha123\"}"
+				},
+				"url": {
+					"raw": "http://127.0.0.1:5000/login",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"login"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Login de Usuário",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"email\": \"edney@email.com\", \"senha\": \"senha123\"}"
+						},
+						"url": {
+							"raw": "http://127.0.0.1:5000/login",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"login"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Server",
+							"value": "Werkzeug/3.1.3 Python/3.13.3"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 28 Apr 2025 00:10:22 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "350"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"access_token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTc0NTc5OTAyMiwianRpIjoiZWE3NmEyN2YtMjFiMi00YmViLTllYTAtZDFjOGI2Nzk4MjU2IiwidHlwZSI6ImFjY2VzcyIsInN1YiI6IjEiLCJuYmYiOjE3NDU3OTkwMjIsImNzcmYiOiI2MTc4YjdiZi0zNjgyLTQxMDYtODgwZC05NDdjMGQxMWM5MmIiLCJleHAiOjE3NDU3OTk5MjJ9.WpzNCfGK50cQ3bRa1hDZPwbM8rnzmlQWDUrynAlfVuk\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Cadastrar Paciente",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{jwt_token}}"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"nome\": \"João da Silva\", \"cpf\": \"12345678900\", \"data_nascimento\": \"01/01/1990\", \"email\": \"joao@email.com\", \"telefone\": \"11999998888\", \"endereco\": \"Rua Manoel Gomes Caneta Azul, 123\"}"
+				},
+				"url": {
+					"raw": "http://127.0.0.1:5000/pacientes",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"pacientes"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Cadastrar Paciente",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{jwt_token}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"nome\": \"João da Silva\", \"cpf\": \"12345678900\", \"data_nascimento\": \"01/01/1990\", \"email\": \"joao@email.com\", \"telefone\": \"11999998888\", \"endereco\": \"Rua Manoel Gomes Caneta Azul, 123\"}"
+						},
+						"url": {
+							"raw": "http://127.0.0.1:5000/pacientes",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"pacientes"
+							]
+						}
+					},
+					"status": "CREATED",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Server",
+							"value": "Werkzeug/3.1.3 Python/3.13.3"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 28 Apr 2025 00:10:49 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "51"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Paciente cadastrado com sucesso\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Agendar Consulta",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{jwt_token}}"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"paciente_id\": 1, \"profissional\": \"Dra. Paula Marques\", \"especialidade\": \"Psiquiatria\", \"data_hora\": \"10/05/2025 14:30:00\"}"
+				},
+				"url": {
+					"raw": "http://127.0.0.1:5000/consultas",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"consultas"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Agendar Consulta",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{jwt_token}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"paciente_id\": 1, \"profissional\": \"Dra. Paula Marques\", \"especialidade\": \"Psiquiatria\", \"data_hora\": \"10/05/2025 14:30:00\"}"
+						},
+						"url": {
+							"raw": "http://127.0.0.1:5000/consultas",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"consultas"
+							]
+						}
+					},
+					"status": "CREATED",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Server",
+							"value": "Werkzeug/3.1.3 Python/3.13.3"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 28 Apr 2025 00:12:57 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "49"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Consulta agendada com sucesso\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Criar Teleconsulta",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{jwt_token}}"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"consulta_id\": 1}"
+				},
+				"url": {
+					"raw": "http://127.0.0.1:5000/teleconsultas",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"teleconsultas"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Criar Teleconsulta",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{jwt_token}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"consulta_id\": 1}"
+						},
+						"url": {
+							"raw": "http://127.0.0.1:5000/teleconsultas",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"teleconsultas"
+							]
+						}
+					},
+					"status": "CREATED",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Server",
+							"value": "Werkzeug/3.1.3 Python/3.13.3"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 28 Apr 2025 00:14:05 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "93"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"link\": \"https://localhost/consulta/1\",\n    \"message\": \"Teleconsulta criada com sucesso\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Listar Pacientes",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:5000/pacientes",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"pacientes"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Listar Pacientes",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:5000/pacientes",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"pacientes"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Server",
+							"value": "Werkzeug/3.1.3 Python/3.13.3"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 28 Apr 2025 00:15:14 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "276"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"cpf\": \"12345678900\",\n        \"criado_em\": \"28/04/2025 00:10:49\",\n        \"data_nascimento\": \"01/01/1990\",\n        \"email\": \"joao@email.com\",\n        \"endereco\": \"Rua Manoel Gomes Caneta Azul, 123\",\n        \"id\": 1,\n        \"nome\": \"João da Silva\",\n        \"telefone\": \"11999998888\"\n    }\n]"
+				}
+			]
+		},
+		{
+			"name": "Listar Consultas",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:5000/consultas",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"consultas"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Listar Consultas",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:5000/consultas",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"consultas"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Server",
+							"value": "Werkzeug/3.1.3 Python/3.13.3"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 28 Apr 2025 00:14:54 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "230"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"criado_em\": \"28/04/2025 00:12:57\",\n        \"data_hora\": \"10/05/2025 14:30:00\",\n        \"especialidade\": \"Psiquiatria\",\n        \"id\": 1,\n        \"paciente_id\": 1,\n        \"profissional\": \"Dra. Paula Marques\",\n        \"status\": \"agendada\"\n    }\n]"
+				}
+			]
+		},
+		{
+			"name": "Cancelar Consulta",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{jwt_token}}"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "http://127.0.0.1:5000/consultas/{{id_consulta}}",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"consultas",
+						"{{id_consulta}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Cancelar Consulta",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{jwt_token}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "http://127.0.0.1:5000/consultas/{{id_consulta}}",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"consultas",
+								"{{id_consulta}}"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Server",
+							"value": "Werkzeug/3.1.3 Python/3.13.3"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 28 Apr 2025 00:16:24 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "50"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Consulta cancelada com sucesso\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Criar Notificação",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{jwt_token}}"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"paciente_id\": 1, \"mensagem\": \"Sua consulta em 10/05/2025 14:30:00 foi cancelada.\"}"
+				},
+				"url": {
+					"raw": "http://127.0.0.1:5000/notificacoes",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"notificacoes"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Criar Notificação",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{jwt_token}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"paciente_id\": 1, \"mensagem\": \"Sua consulta em 10/05/2025 14:30:00 foi cancelada.\"}"
+						},
+						"url": {
+							"raw": "http://127.0.0.1:5000/notificacoes",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"notificacoes"
+							]
+						}
+					},
+					"status": "CREATED",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Server",
+							"value": "Werkzeug/3.1.3 Python/3.13.3"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 28 Apr 2025 00:19:29 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "60"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Notificação criada com sucesso\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Listar Notificações do Paciente",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{jwt_token}}"
+					}
+				],
+				"url": {
+					"raw": "http://127.0.0.1:5000/notificacoes/1",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"notificacoes",
+						"1"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Listar Notificações do Paciente",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{jwt_token}}"
+							}
+						],
+						"url": {
+							"raw": "http://127.0.0.1:5000/notificacoes/1",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"notificacoes",
+								"1"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Server",
+							"value": "Werkzeug/3.1.3 Python/3.13.3"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 28 Apr 2025 00:19:45 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "153"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"criado_em\": \"28/04/2025 00:19:29\",\n        \"id\": 1,\n        \"lida\": false,\n        \"mensagem\": \"Sua consulta em 10/05/2025 14:30:00 foi cancelada.\"\n    }\n]"
+				}
+			]
+		},
+		{
+			"name": "Criar Prontuário",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{jwt_token}}"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"consulta_id\": 1, \"anotacoes\": \"Paciente relata depressão e ansiedade.\"}"
+				},
+				"url": {
+					"raw": "http://127.0.0.1:5000/prontuarios",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"prontuarios"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Criar Prontuário",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{jwt_token}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"consulta_id\": 1, \"anotacoes\": \"Paciente relata depressão e ansiedade.\"}"
+						},
+						"url": {
+							"raw": "http://127.0.0.1:5000/prontuarios",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"prontuarios"
+							]
+						}
+					},
+					"status": "CREATED",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Server",
+							"value": "Werkzeug/3.1.3 Python/3.13.3"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 28 Apr 2025 00:22:08 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "58"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Prontuário registrado com sucesso\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Listar Prontuários do Paciente",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{jwt_token}}"
+					}
+				],
+				"url": {
+					"raw": "http://127.0.0.1:5000/prontuarios/1",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"prontuarios",
+						"1"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Listar Prontuários do Paciente",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{jwt_token}}"
+							}
+						],
+						"url": {
+							"raw": "http://127.0.0.1:5000/prontuarios/1",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"prontuarios",
+								"1"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Server",
+							"value": "Werkzeug/3.1.3 Python/3.13.3"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 28 Apr 2025 00:22:28 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "137"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"anotacoes\": \"Paciente relata depressão e ansiedade.\",\n        \"consulta_id\": 1,\n        \"criado_em\": \"28/04/2025 00:22:08\"\n    }\n]"
+				}
+			]
+		},
+		{
+			"name": "Criar Prescrição",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{jwt_token}}"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"consulta_id\": 1, \"medicamentos\": \"Clonazepam 0,5mg e Fluoxetina 10mg pela manhã\"}"
+				},
+				"url": {
+					"raw": "http://127.0.0.1:5000/prescricoes",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"prescricoes"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Criar Prescrição",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{jwt_token}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"consulta_id\": 1, \"medicamentos\": \"Clonazepam 0,5mg e Fluoxetina 10mg pela manhã\"}"
+						},
+						"url": {
+							"raw": "http://127.0.0.1:5000/prescricoes",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"prescricoes"
+							]
+						}
+					},
+					"status": "CREATED",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Server",
+							"value": "Werkzeug/3.1.3 Python/3.13.3"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 28 Apr 2025 00:24:29 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "63"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Prescrição registrada com sucesso\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Listar Prescrições do Paciente",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{jwt_token}}"
+					}
+				],
+				"url": {
+					"raw": "http://127.0.0.1:5000/prescricoes/1",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"prescricoes",
+						"1"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Listar Prescrições do Paciente",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{jwt_token}}"
+							}
+						],
+						"url": {
+							"raw": "http://127.0.0.1:5000/prescricoes/1",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"prescricoes",
+								"1"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Server",
+							"value": "Werkzeug/3.1.3 Python/3.13.3"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 28 Apr 2025 00:24:36 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "147"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"consulta_id\": 1,\n        \"criado_em\": \"28/04/2025 00:24:29\",\n        \"medicamentos\": \"Clonazepam 0,5mg e Fluoxetina 10mg pela manhã\"\n    }\n]"
+				}
+			]
+		}
+	],
+	"variable": [
+		{
+			"key": "jwt_token",
+			"value": "",
+			"type": "default"
+		}
+	]
+}
